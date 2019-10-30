@@ -30,7 +30,7 @@ export default {
     },
     selectRange: {
       type: Array,
-      default: () => ['2016-01-01', `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate()}`]
+      default: () => ['2016/01/01', `${myDate.getFullYear()}/${myDate.getMonth() + 1}/${myDate.getDate()}`]
     }
   },
   components: {

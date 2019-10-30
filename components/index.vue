@@ -127,7 +127,7 @@ export default {
     },
     selectRange: {
       type: Array,
-      default: () => ['2016-01-01', `${myDate.getFullYear()}-${myDate.getMonth() + 1}-${myDate.getDate()}`]
+      default: () => ['2016/01/01', `${myDate.getFullYear()}/${myDate.getMonth() + 1}/${myDate.getDate()}`]
     }
   },
   data() {
@@ -378,13 +378,13 @@ export default {
           state = date >= range[0].getFullYear() && date <= range[1].getFullYear();
           break;
         case 'months':
-          let currentDateMonth = new Date(`${years[yearsModel].value}-${date}-1`);
-          let minDate = new Date(`${range[0].getFullYear()}-${range[0].getMonth() + 1}-1`);
-          let maxDate = new Date(`${range[1].getFullYear()}-${range[1].getMonth() + 1}-1`);
+          let currentDateMonth = new Date(years[yearsModel].value, date, 1);
+          let minDate = new Date(range[0].getFullYear(), range[0].getMonth() + 1, 1);
+          let maxDate = new Date(range[1].getFullYear(), range[1].getMonth() + 1, 1);
           state = currentDateMonth >= minDate && currentDateMonth <= maxDate;
           break;
         case 'days':
-          let currentDateDay = new Date(`${years[yearsModel].value}-${months[monthsModel].value}-${date}`);
+          let currentDateDay = new Date(years[yearsModel].value, months[monthsModel].value, date);
           state = currentDateDay >= range[0] && currentDateDay <= range[1];
           break;
         default:
